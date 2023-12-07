@@ -1,0 +1,20 @@
+/ {
+    aliases {
+        eeprom-0 = &at24_eeprom;
+    };
+};
+
+&i2c0 {
+	status = "okay";
+
+	at24_eeprom: eeprom@50 {
+		compatible = "atmel,at24";
+		status = "okay";
+
+		reg = <0x50>;
+		size = <4096>;
+		pagesize = <32>;
+		address-width = <8>;
+		timeout = <5>;
+	};
+};
